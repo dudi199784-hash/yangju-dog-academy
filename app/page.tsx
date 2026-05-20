@@ -47,11 +47,12 @@ export default function Home() {
             <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
                 <Image
-                  src="/images/about/training-center.png"
-                  alt="어질리티 대회 시상식 — 양주독아카데미 훈련사와 수상견"
+                  src="/images/about/team-group.png"
+                  alt="양주독아카데미 · 아우펠트 어질리티 클럽 단체 사진"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
+                  priority
                 />
               </div>
 
