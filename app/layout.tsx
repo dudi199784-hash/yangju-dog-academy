@@ -23,10 +23,6 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     siteName: site.name,
   },
-  icons: {
-    icon: [{ url: site.images.favicon, type: "image/jpeg", sizes: "48x48" }],
-    apple: [{ url: site.images.favicon, type: "image/jpeg", sizes: "48x48" }],
-  },
 };
 
 export default function RootLayout({

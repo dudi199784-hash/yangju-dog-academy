@@ -50,7 +50,7 @@ export const site = {
   },
   images: {
     logo: "/images/logo/dog-logo.png",
-    favicon: "/images/logo/favicon.jpg",
+    favicon: "/favicon.ico",
     directorPhoto: "/images/director/director-photo.jpg",
   },
 } as const;
