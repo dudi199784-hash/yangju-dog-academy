@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #faf8f5;
+  --background: #ffffff;
   --foreground: #1a1a1a;
-  --primary: #1e3d2a;
-  --primary-light: #5a7d65;
+  --primary: #2d5a3d;
+  --primary-light: #4a7c59;
   --accent: #c4a574;
 }
 
@@ -21,6 +21,21 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+@keyframes hero-text-fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-text-fade {
+  animation: hero-text-fade 1s ease-out forwards;
 }
 
 /* 모바일 하단 고정 바 여백 */

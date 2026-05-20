@@ -11,7 +11,7 @@ const notoSansKr = Noto_Sans_KR({
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
-  title: `${site.name} | 반려견 훈련·호텔링`,
+  title: `${site.name} | 전문 애견훈련`,
   description: site.description,
   alternates: {
     canonical: "/",

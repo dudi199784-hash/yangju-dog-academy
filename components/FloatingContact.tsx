@@ -2,13 +2,13 @@ import { site } from "@/lib/site";
 
 export function FloatingContact() {
   return (
-    <div className="fixed right-0 bottom-0 left-0 z-40 border-t border-stone-200 bg-white/95 px-4 py-3 backdrop-blur-sm md:hidden">
+    <div className="fixed right-0 bottom-0 left-0 z-40 border-t border-stone-200 bg-white/95 px-4 py-3 shadow-[0_-4px_20px_rgba(0,0,0,0.06)] backdrop-blur-sm md:hidden">
       <div className="mx-auto flex max-w-lg gap-2">
         <a
           href={site.instagram.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-gradient-to-br from-[#f58529] via-[#dd2a7b] to-[#8134af] py-3 text-sm font-semibold text-white"
+          className="flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-gradient-to-br from-[#f58529] via-[#dd2a7b] to-[#8134af] py-2.5 text-sm font-medium text-white"
         >
           <InstagramIcon />
           인스타
@@ -17,7 +17,7 @@ export function FloatingContact() {
           href={site.kakao.openChatUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-[#fee500] py-3 text-sm font-semibold text-[#3c1e1e]"
+          className="flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-[#fee500] py-2.5 text-sm font-medium text-[#3c1e1e]"
         >
           <KakaoIcon />
           카톡
@@ -25,7 +25,7 @@ export function FloatingContact() {
         {site.phone.tel ? (
           <a
             href={`tel:${site.phone.tel}`}
-            className="flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-[#1e3d2a] py-3 text-sm font-semibold text-white"
+            className="flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-[#2d5a3d] py-2.5 text-sm font-medium text-white"
           >
             <PhoneIcon />
             전화

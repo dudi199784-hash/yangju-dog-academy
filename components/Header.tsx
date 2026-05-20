@@ -1,36 +1,67 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { navItems, site } from "@/lib/site";
 
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function isSamePage(pathname: string, href: string) {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
 export function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  const handleNavClick = (href: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (isSamePage(pathname, href)) {
+      e.preventDefault();
+      scrollToTop();
+    }
+    setOpen(false);
+  };
+
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      scrollToTop();
+    }
+  };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-stone-200/80 bg-[#faf8f5]/95 backdrop-blur-sm">
-      <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-5">
-        <a href="#" className="text-lg font-bold tracking-tight text-[#1e3d2a]">
+    <header className="sticky top-0 z-50 border-b border-stone-200/80 bg-white/95 backdrop-blur-sm">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
+        <Link
+          href="/"
+          onClick={handleLogoClick}
+          className="text-base font-semibold tracking-tight text-[#1a1a1a]"
+        >
           {site.name}
-        </a>
+        </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-stone-600 transition-colors hover:text-[#1e3d2a]"
-            >
-              {item.label}
-            </a>
-          ))}
-          <a
-            href={site.instagram.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full bg-[#1e3d2a] px-4 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90"
-          >
-            인스타그램
-          </a>
+        <nav className="hidden items-center gap-10 md:flex">
+          {navItems.map((item) => {
+            const isActive = isSamePage(pathname, item.href);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={handleNavClick(item.href)}
+                className={`text-sm transition-colors ${
+                  isActive
+                    ? "font-medium text-[#1a1a1a]"
+                    : "font-normal text-stone-600 hover:text-[#1a1a1a]"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <button
@@ -64,30 +95,19 @@ export function Header() {
       </div>
 
       {open && (
-        <nav className="border-t border-stone-200 bg-[#faf8f5] px-5 py-4 md:hidden">
+        <nav className="border-t border-stone-200 bg-white px-5 py-4 md:hidden">
           <ul className="flex flex-col gap-1">
             {navItems.map((item) => (
               <li key={item.href}>
-                <a
+                <Link
                   href={item.href}
-                  className="block rounded-lg px-3 py-2.5 text-sm font-medium text-stone-700 hover:bg-stone-100"
-                  onClick={() => setOpen(false)}
+                  className="block rounded-lg px-3 py-2.5 text-sm font-normal text-stone-700 hover:bg-stone-50"
+                  onClick={handleNavClick(item.href)}
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
-            <li>
-              <a
-                href={site.instagram.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 block rounded-lg bg-[#1e3d2a] px-3 py-2.5 text-center text-sm font-medium text-white"
-                onClick={() => setOpen(false)}
-              >
-                인스타그램 @{site.instagram.handle}
-              </a>
-            </li>
           </ul>
         </nav>
       )}
