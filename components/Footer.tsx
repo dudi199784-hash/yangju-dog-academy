@@ -19,6 +19,9 @@ export function Footer() {
             <Link href="/classes" className="hover:text-white">
               클래스 안내
             </Link>
+            <Link href="/director" className="hover:text-white">
+              훈련소 소개
+            </Link>
             <Link href="/contact" className="hover:text-white">
               상담 문의
             </Link>

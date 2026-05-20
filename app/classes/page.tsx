@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { BannerOverlay } from "@/components/BannerOverlay";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FloatingContact } from "@/components/FloatingContact";
@@ -27,9 +28,9 @@ export default function ClassesPage() {
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/15 to-transparent" />
-          <div className="relative z-10 mx-auto h-full max-w-6xl px-10 pt-16 sm:px-14 sm:pt-20 md:px-16 md:pt-24">
-            <div className="max-w-md text-left text-white">
+          <BannerOverlay />
+          <div className="relative z-20 mx-auto h-full max-w-6xl px-10 pt-16 sm:px-14 sm:pt-20 md:px-16 md:pt-24">
+            <div className="max-w-md text-left text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.6)]">
               <p className="text-xs font-medium tracking-wide text-white/80 sm:text-sm">
                 Programs
               </p>

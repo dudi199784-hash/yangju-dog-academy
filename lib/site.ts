@@ -48,13 +48,46 @@ export const site = {
     saturday: "토요일 09:00 ~ 13:00",
     note: "일요일·공휴일 휴무 (변동 시 사전 안내)",
   },
+  images: {
+    logo: "/images/logo/dog-logo.png",
+    favicon: "/images/logo/favicon.jpg",
+    directorPhoto: "/images/director/director-photo.jpg",
+  },
 } as const;
 
 export const navItems = [
   { label: "홈", href: "/" },
   { label: "클래스 안내", href: "/classes" },
+  { label: "훈련소 소개", href: "/director" },
   { label: "상담 문의", href: "/contact" },
 ] as const;
+
+export const academyIntro = {
+  overview: {
+    title: site.name,
+    paragraphs: [
+      "양주독아카데미는 전문 애견훈련사가 이끄는 체계적인 훈련 전문 기관입니다. 넓은 야외 훈련장과 전문 장비를 갖추고, 반려견의 성격과 목적에 맞는 맞춤형 프로그램을 운영합니다.",
+      "기본 복종훈련부터 어질리티, IGP, 훈련사 자격증반까지 다양한 커리큘럼을 통해 반려견과 보호자가 함께 성장할 수 있는 환경을 제공합니다.",
+    ],
+  },
+  director: {
+    sectionTitle: "훈련소장",
+    role: "훈련소장",
+    headline: "반려견과 보호자 모두를 위한 전문 훈련을 이끕니다",
+    intro: [
+      "다년간의 현장 경험과 전문 자격을 바탕으로, 반려견의 성격과 목적에 맞는 맞춤형 훈련을 지도하고 있습니다.",
+      "기본 복종훈련부터 어질리티, IGP까지 체계적인 커리큘럼으로 반려견과 보호자가 함께 성장할 수 있도록 돕습니다.",
+      "훈련이 끝난 뒤에도 가정에서 이어갈 수 있도록 보호자와의 소통을 중요하게 생각합니다.",
+    ],
+    qualifications: [
+      "공인 애견훈련사 자격 보유",
+      "어질리티 · IGP 전문 지도 경력",
+      "훈련사 자격증반 운영 및 실기 지도",
+    ],
+    message:
+      "모든 반려견은 저마다의 가능성을 가지고 있습니다. 양주독아카데미는 반려견과 보호자가 서로를 이해하고 신뢰하는 관계를 만들어 가는 것을 목표로 합니다.",
+  },
+} as const;
 
 export const contactFaqs = [
   {

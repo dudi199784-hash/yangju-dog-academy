@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -39,9 +40,17 @@ export function Header() {
         <Link
           href="/"
           onClick={handleLogoClick}
-          className="text-base font-semibold tracking-tight text-[#1a1a1a]"
+          className="flex items-center gap-2.5 text-base font-semibold tracking-tight text-[#1a1a1a]"
         >
-          {site.name}
+          <Image
+            src={site.images.logo}
+            alt=""
+            width={258}
+            height={280}
+            className="h-9 w-auto shrink-0 object-contain"
+            priority
+          />
+          <span className="leading-none">{site.name}</span>
         </Link>
 
         <nav className="hidden items-center gap-10 md:flex">
